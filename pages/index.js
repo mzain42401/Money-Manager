@@ -16,7 +16,7 @@ const index = () => {
 
           <div className='flex justify-center items-center pt-2'>
             <div><Image className='w-16 h-12' src={cld} /></div>
-            <h1 className='md:text-2xl text-lg '>My Money Manager</h1>
+            <h1 className='md:text-2xl text-xl '>My Money Manager</h1>
           </div>
 
           <div className='px-10'>
