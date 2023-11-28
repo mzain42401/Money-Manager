@@ -3,6 +3,34 @@
 @tailwind utilities;
 
 
+.spending,.transaction{
+    background: linear-gradient(rgba(192, 193, 193, 0.1),rgba(223, 223, 223, 0.8)), url('../public/data.jpg') center center ;
+    background-attachment: fixed;
+    /* background-image: url('../public/data.jpg');
+    background:  center ; */
+    height: calc(100% - 90px);
+}
+@media only screen and (max-width: 768px) {
+    .spending,.transaction{
+    height: calc(100% - 75px);
 
+    }
+}
+
+@layer utilities {
+    @variants responsive {
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+    }
+  }
+/*  */
 /* dark #0039a6 */
 /* light #007FFF */
