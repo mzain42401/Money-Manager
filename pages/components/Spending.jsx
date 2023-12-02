@@ -185,10 +185,14 @@ const Spending = () => {
 
                 </div>
 
+
                 <div className='w-full flex justify-evenly items-center'>
-                    <div className='bg-[#0039a6] px-5 rounded py-[1px] text-white text-lg cursor-pointer'
-                        onClick={() => setToggle(!toggle)}>INCOME</div>
-                    <div onClick={() => setexpensetoggle(!expensetoggle)} className='bg-[#0039a6] px-5 rounded py-[1px] text-white text-lg cursor-pointer' >EXPENSE</div>
+                {
+                    mymonth===mon? <><div className='bg-[#0039a6] px-5 rounded py-[1px] text-white text-lg cursor-pointer'
+                    onClick={() => setToggle(!toggle)}>INCOME</div>
+                <div onClick={() => setexpensetoggle(!expensetoggle)} className='bg-[#0039a6] px-5 rounded py-[1px] text-white text-lg cursor-pointer' >EXPENSE</div></>:null
+                }
+                   
 
                 </div>
             </div>
