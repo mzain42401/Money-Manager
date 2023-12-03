@@ -69,7 +69,7 @@ export default function Login() {
                     onChange={(e)=>setemail(e.target.value)}
                     autoComplete="email"
                     required
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#0039a6] sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -90,29 +90,29 @@ export default function Login() {
                     onChange={(e)=>setpassword(e.target.value)}
                     autoComplete="current-password"
                     required
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#0039a6] sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
               <p className=" text-sm text-gray-500">
               Don't  have an account?{' '}
-            <Link href="/signup" className="font-semibold  text-indigo-600 hover:text-indigo-500">
+            <Link href="/signup" className="font-semibold  text-[#0039a6] hover:text-[#0039a6]">
               Signup
             </Link>
           </p>
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-[#0039a6] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#0912a9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0039a6]"
                 >
                   Sign in
                 </button>
               </div>
             </form>
   
-            <div className=" relative flex w-full justify-center items-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-3 600 text-center  ">
+            <div className=" relative flex w-full justify-center items-center rounded-md bg-[#0039a6] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#0912a9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0039a6] mt-3 600 text-center  ">
                 <div className="absolute left-1 rounded-sm text-2xl flex justify-center items-center  py-1.5 bg-white h-8 w-8"> <FcGoogle/></div>
-             Login with Google
+             Signin with Google
             </div>
           </div>
         </div>
