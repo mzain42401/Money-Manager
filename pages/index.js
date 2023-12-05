@@ -6,6 +6,7 @@ import Transaction from './components/Transaction'
 import Login from './components/Login'
 import {auth} from '../firebase/firebase';
 import {  signInWithEmailAndPassword } from "firebase/auth";
+import Loader from './components/Loader'
 
 // import {useAuth} from '../firebase/authcontext'
 const index = () => {
@@ -16,6 +17,10 @@ const index = () => {
   return (
     <>
     <Login/>
+    {/* <div className='h-screen w-full flex justify-center items-center'>
+
+   <Loader/>
+    </div> */}
     </>
   )
 }
