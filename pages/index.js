@@ -1,26 +1,40 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
-import cld from '../public/calender.png'
-import Spending from './components/Spending'
-import Transaction from './components/Transaction'
+import React, { useEffect, useState } from 'react'
+import Mainpart from './components/Main'
 import Login from './components/Login'
-import {auth} from '../firebase/firebase';
-import {  signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../firebase/firebase';
 import Loader from './components/Loader'
 
-// import {useAuth} from '../firebase/authcontext'
+
+
+
 const index = () => {
-  
- 
-  
-  const [toggel, setToggle] = useState(false)
+  const [user, setUser] = useState(true)
+  const [loading, setloading] = useState(true)
+
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        setUser(false)
+        setloading(false)
+      }
+      else {
+        setUser(true)
+        setloading(false)
+      }
+    })
+
+  }, [])
+
   return (
     <>
-    <Login/>
-    {/* <div className='h-screen w-full flex justify-center items-center'>
+      {
+        loading ? <Loader /> : <div>{
+          user ?<Login />: <Mainpart /> 
+            }</div>
+      }
 
-   <Loader/>
-    </div> */}
+
     </>
   )
 }

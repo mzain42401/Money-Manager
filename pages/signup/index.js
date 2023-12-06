@@ -5,10 +5,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/firebase";
-import Loader from "../components/Loader";
+// import Loader from "../components/Loader";
 import { useRouter } from "next/router";
 
-
+import Loader from "../components/Loader";
 
 
 export default function index() {
@@ -29,7 +29,7 @@ export default function index() {
             .then((userCredential) => {
                 signInWithEmailAndPassword(auth, email, password)
                     .then((signin) => {
-                       console.log(signin);
+                        console.log(signin);
                     })
                     .catch((error) => {
                         console.log(error.message);
@@ -52,14 +52,14 @@ export default function index() {
 
                 }
             });
-        myroute.push('/app')
+        myroute.push('/')
 
     }
     return (
         <>
             {
                 loader ?
-                    <div className='h-screen w-full flex justify-center items-center'><Loader /></div>
+                    <Loader />
                     : <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-2 lg:px-8">
                         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
 
