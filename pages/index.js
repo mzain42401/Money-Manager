@@ -7,34 +7,34 @@ import Loader from './components/Loader'
 
 
 
-
 const index = () => {
-  const [user, setUser] = useState(true)
+  const [user, setUser] = useState(false)
   const [loading, setloading] = useState(true)
+  const [userData, setUserData] = useState()
+
+  
 
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
-        setUser(false)
+        setUser(true)
+        setUserData(user.email)
         setloading(false)
       }
       else {
-        setUser(true)
+        setUser(false)
         setloading(false)
       }
     })
-
   }, [])
-
+console.log(userData);
   return (
+
     <>
       {
-        loading ? <Loader /> : <div>{
-          user ?<Login />: <Mainpart /> 
-            }</div>
+        loading ? <Loader /> :
+          user ? <Mainpart UserData={userData} /> : <Login />
       }
-
-
     </>
   )
 }
