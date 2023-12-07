@@ -1,16 +1,18 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
-import cld from '../../public/calender.png'
-import Spending from './Spending'
-import Transaction from './Transaction'
+import React, { useEffect, useState } from 'react'
+import cld from '../public/calender.png'
+import Spending from '../pages/components/Spending'
+import Transaction from '../pages/components/Transaction'
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { signOut } from 'firebase/auth'
 import { auth } from '@/firebase/firebase'
-import Loader from './Loader'
+import Loader from '../pages/components/Loader'
+import { useRouter } from 'next/router'
 
-const Mainpart = () => {
+const app = () => {
   const [toggel, setToggle] = useState(false)
   const [loading, setloading] = useState(false)
+  const myroute=useRouter()
 
   const logout=()=>{
     setloading(true)
@@ -20,7 +22,16 @@ const Mainpart = () => {
         // An error happened.
       });
   }
-
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        console.log(user.email);
+      }
+      else{
+        myroute.push('/')
+      }
+    })
+  }, [])
   return (
     <>
      {
@@ -67,4 +78,4 @@ const Mainpart = () => {
   )
 }
 
-export default Mainpart
+export default app

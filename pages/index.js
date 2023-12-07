@@ -1,40 +1,45 @@
-import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import Mainpart from './components/Main'
 import Login from './components/Login'
 import { auth } from '../firebase/firebase';
 import Loader from './components/Loader'
-
+import Signup from '../pages/components/Signup'
+import { useRouter } from 'next/router';
 
 
 const index = () => {
-  const [user, setUser] = useState(false)
-  const [loading, setloading] = useState(true)
-  const [userData, setUserData] = useState()
+  const myroute = useRouter()
+ 
+  const [login,setLogin] = useState(true)
+  const [user,setuser] = useState(false)
 
+
+const islogin=()=>{
+  setLogin(!login)
+}
   
 
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
-        setUser(true)
-        setUserData(user.email)
-        setloading(false)
+        myroute.push('/app')
       }
-      else {
-        setUser(false)
-        setloading(false)
+      else{
+        setuser(true)
       }
+      
     })
   }, [])
-console.log(userData);
   return (
 
     <>
-      {
-        loading ? <Loader /> :
-          user ? <Mainpart UserData={userData} /> : <Login />
-      }
+    {
+      user?
+        login?<Login islogin={islogin}/>:<Signup islogin={islogin}/> 
+      :<Loader/>
+    }
+      
+      
+      
     </>
   )
 }
